@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre consultorio</title>
+    <link rel="stylesheet" href="/CSS/styles.css">
+</head>
+<body onload="mostrarFecha()">
+
+    <header class="header">
+        <img src="/IMG/logo index.png" alt="logo-consultorio.png">
+    </header>
+
+    <div class="contenido">
+        <main class="informacion">
+            <h1>Informacion Citas</h1> <p id="dia-Actual">dia</p>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cita</th>
+                    <th>Datos Paciente</th>
+                </tr>
+                <tr>
+                    <td>Octavio</td>
+                    <td>Ortiz</td>
+                    <td>13:00 <input id="modificar-cita" type="submit" value="Modificar"></form></td>
+                    <td><input id="modificar-datos" type="submit" value="Visualizar Datos"></form></td>
+                </tr>
+                <tr>
+                    <td>Alejandro</td>
+                    <td>Galicia</td>
+                    <td>11:00 <input id="modificar-cita" type="submit" value="Modificar"></form></td>
+                    <td><input id="modificar-datos" type="submit" value="Visualizar Datos"></form></td>
+                </tr>
+            </table>
+        </main>
+
+        <section class="segunda-seccion">
+            <div class="seccion-lateral">
+                <h2>Crear nueva cita</h2>
+                <a href="/HTML/nueva-cita.html">Nueva cita</a>
+            </div>
+            <div class="seccion-lateral">
+                <h2>Registrar nuevo paciente</h2>
+                <a href="/HTML/nuevo-paciente.html">Nuevo paciente</a>
+            </div>
+            <div class="seccion-lateral">
+                <h2>Vizualizar citas</h2>
+                <a href="/HTML/ver-citas.html">Ver citas</a>
+            </div>
+            <div class="seccion-lateral">
+                <h2>Vizualizar pacientes</h2>
+                <a href="/HTML/ver-datos.html">Ver pacientes</a>
+            </div>
+        </section>
+    </div>
+
+<script src="/JS/script.js"></script>
+</body>
+</html>

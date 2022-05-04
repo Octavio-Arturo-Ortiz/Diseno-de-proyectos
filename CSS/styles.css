@@ -1,0 +1,170 @@
+/*Reseteo margin, padding*/
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(/IMG/fondo-nutricion.jpg);
+}
+
+/*Estilos tablas*/
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 10px;
+}
+
+td{
+    background-color: white;
+}
+
+th{
+    text-align: center;
+    background-color: aquamarine;
+}
+
+/*Estilos generales*/
+
+.header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/*index*/
+.contenido{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.informacion{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.informacion table{
+    max-width: 50%;
+}
+
+.informacion table{
+    width: 85%;
+    text-align: center;
+}
+
+#modificar-cita{
+    margin-left: 10px;
+}
+
+.segunda-seccion{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.seccion-lateral{
+    background-color: cadetblue;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 20px;
+}
+
+.seccion-lateral h2{
+    padding-bottom: 10px;
+}
+
+.seccion-lateral a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*formularios*/
+.formulario{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.input{
+    margin: 10px;
+}
+
+#registrar-paciente{
+    display: flex;
+    margin: 0px auto;
+    padding: 8px;
+    margin-top: 30px;
+}
+
+#registrar-cita{
+    display: flex;
+    margin: 0px auto;
+    padding: 8px;
+    margin-top: 30px;
+}
+
+/*******BOTONES********/
+
+/*boton de regreso*/
+.boton-regreso{
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.boton-regreso a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px black;
+}
+
+/*boton opciones*/
+.boton-opcion{
+    text-decoration: none;
+    text-shadow: 1px 3px 10px black;
+    color: black;
+    background-color: gainsboro;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.boton-opcion:hover{
+    background-color: black;
+    color: white;
+    text-shadow: 1px 3px 10px white;
+}
+
+/********** ver-datos.html ***********/
+
+/*barra de busqueda*/
+.search{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.search input:first-of-type{
+    width: 300px;
+}
+
+/*tabla*/
+.datos-clientes{
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+

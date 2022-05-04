@@ -1,0 +1,89 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image:
+    radial-gradient(closest-side, transparent 0%, transparent 75%, #B6CC66 76%, #B6CC66 85%, #EDFFDB 86%, #EDFFDB 94%, #FFFFFF 95%, #FFFFFF 103%, #D9E6A7 104%, #D9E6A7 112%, #798B3C 113%, #798B3C 121%, #FFFFFF 122%, #FFFFFF 130%, #E0EAD7 131%, #E0EAD7 140%),
+    radial-gradient(closest-side, transparent 0%, transparent 75%, #B6CC66 76%, #B6CC66 85%, #EDFFDB 86%, #EDFFDB 94%, #FFFFFF 95%, #FFFFFF 103%, #D9E6A7 104%, #D9E6A7 112%, #798B3C 113%, #798B3C 121%, #FFFFFF 122%, #FFFFFF 130%, #E0EAD7 131%, #E0EAD7 140%);
+    background-size: 110px 110px;
+    background-color: #C8D3A7;
+    background-position: 0 0, 55px 55px;
+}
+
+#login{
+    width: 30%;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+    filter: drop-shadow(5px 5px 4px black);
+    box-shadow: 5px 5px 2px black;
+}
+
+#login h1{
+    text-align: center;
+    padding-top: 30px;
+}
+
+#login form{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.input-log{
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.input-log input{
+    width: auto;
+    height: 20px;
+}
+
+/**BORRAR BOTON PROVICIONAL DESPUES**/
+
+form a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    display: block;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 0px auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition: .3s;
+}
+
+form a:hover{
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+/*REPONER ESTE BOTON DESPUES*/
+
+/*
+#ingresar-log{
+    margin: 0px auto;
+    width: 15%;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+#ingresar-log:hover{
+    cursor: pointer;
+    background-color: black;
+    font-weight: bold;
+    color: white;
+}
+
+*/

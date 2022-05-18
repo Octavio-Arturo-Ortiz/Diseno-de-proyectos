@@ -8,6 +8,12 @@ def get_paciente(db: Session, paciente_id: int):
 def get_pacientes(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Paciente).offset(skip).limit(limit).all()
 
+def get_citas(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Cita).offset(skip).limit(limit).all()
+
+def get_cita(db: Session, id_cita: int):
+    return db.query(models.Cita).filter(models.Cita.id == id_cita).first()
+
 def create_paciente(db: Session, paciente: schemas.PacienteCreate):
     db_paciente = models.Paciente(
         nombre=paciente.nombre, 
@@ -30,6 +36,8 @@ def create_cita_paciente(db: Session, cita: schemas.CitaCreate):
     db.commit()
     db.refresh(db_cita)
     return db_cita
+
+
 
 
 

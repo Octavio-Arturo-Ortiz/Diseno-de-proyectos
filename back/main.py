@@ -43,12 +43,24 @@ def consultar_citas(skip: int = 0, limit: int = 100, db: Session = Depends(get_d
     citas = crud.get_citas(db, skip=skip, limit=limit)
     return citas
 
-@app.get("/pacientes/{paciente_id}", response_model=schemas.Paciente)
-def datos_paciente(paciente_id: int, db: Session = Depends(get_db)):
-    db_paciente = crud.get_paciente(db, paciente_id)
+@app.get("/pacientes/{id_paciente}", response_model=schemas.Paciente)
+def datos_paciente(id_paciente: int, db: Session = Depends(get_db)):
+    db_paciente = crud.get_paciente(db, id_paciente)
 
     if db_paciente is None: 
         raise HTTPException(status_code=404, detail="Paciente no encontrado")
 
     return db_paciente
+
+
+@app.get("/pacientes/", response_model=list[schemas.Paciente])
+def get_paciente(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):
+    pacientes = crud.get_pacientes(db, skip, limit)
+    return pacientes
+
+# Path Operations for Updating Data
+
+@app.put("/pacientes/{id_paciente}", response_model=schemas.Paciente)
+def update_paciente(id_paciente: int, paciente: schemas.Paciente, db: Session = Depends(get_db)):
+    return crud.update_paciente(id_paciente, db, paciente)
 

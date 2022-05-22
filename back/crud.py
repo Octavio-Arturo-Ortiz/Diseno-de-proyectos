@@ -37,6 +37,18 @@ def create_cita_paciente(db: Session, cita: schemas.CitaCreate):
     db.refresh(db_cita)
     return db_cita
 
+def update_paciente(id_paciente: int, db: Session, paciente: schemas.Paciente):
+    db_paciente = get_paciente(db, id_paciente)
+
+    for k, v in vars(paciente).items():
+        setattr(db_paciente, k, v) if v else None
+    
+    db.add(db_paciente)
+    db.commit()
+    db.refresh(db_paciente)
+    return db_paciente
+
+
 
 
 

@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from fastapi import HTTPException
 
 import models, schemas
 
@@ -40,6 +41,9 @@ def create_cita_paciente(db: Session, cita: schemas.CitaCreate):
 def update_paciente(id_paciente: int, db: Session, paciente: schemas.Paciente):
     db_paciente = get_paciente(db, id_paciente)
 
+    if db_paciente is None: 
+        raise HTTPException(status_code=404, detail="Paciente no encontrado")
+
     for k, v in vars(paciente).items():
         setattr(db_paciente, k, v) if v else None
     
@@ -49,7 +53,20 @@ def update_paciente(id_paciente: int, db: Session, paciente: schemas.Paciente):
     return db_paciente
 
 
+def update_cita(id_cita: int, db: Session, cita: schemas.Cita):
+    db_cita = get_cita(db, id_cita)
+    
+    if db_cita is None:
+        raise HTTPException(status_code=404, detail="Cita no encontrada")
+    
+    for k, v in vars(cita).items(): 
+        setattr(db_cita, k, v) if v else None
+    
+    db.add(db_cita)
+    db.commit()
+    db.refresh(db_cita)
 
+    return db_cita
 
 
 

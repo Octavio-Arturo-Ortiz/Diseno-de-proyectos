@@ -7,7 +7,7 @@ class Paciente(Base):
 
     __tablename__ = "pacientes"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True) # ID Paciente
     nombre = Column(String, nullable= False)
     apaterno = Column(String, nullable= False)
     amaterno = Column(String)
@@ -22,11 +22,8 @@ class Cita(Base):
 
     __tablename__ = "citas"
 
-    id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String, nullable= False)
-    apaterno = Column(String, nullable= False)
-    amaterno = Column(String)
-    fecha = Column(Date)
+    id = Column(Integer, primary_key=True, index=True) # ID de la Cita
+    fecha = Column(Date) 
     hora = Column(Time)
     id_paciente = Column(Integer, ForeignKey("pacientes.id"))
 

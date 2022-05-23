@@ -7,7 +7,8 @@
     <title>Nombre Consultorio</title>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
-<body>
+<!--Esta funcion llena el listado de los pacientes-->
+<body onload="popularLista()">
 
     <header class="header">
         <img src="/IMG/logo index.png" alt="logo-consultorio.png">
@@ -17,18 +18,12 @@
         <h1>Formulario de registro de Cita</h1>
         <h2>Ingrese los datos:</h2>
 
-        <form action="" method="get">
+        <form id="form-registrar-cita">
             <div class="input">
-                <label for="nombre-buscar" class="label">Nombre:</label>
-                <input type="text" id="nombre-buscar" placeholder="Ingrese su nombre:">
-            </div>
-            <div class="input">
-                <label for="apellido-paterno" class="label">Apellido Paterno:</label>
-                <input type="text" id="apellido-paterno" placeholder="Ingrese su apellido paterno:">
-            </div>
-            <div class="input">
-                <label for="apellido-materno" class="label">Apellido Materno:</label>
-                <input type="text" id="apellido-materno" placeholder="Ingrese su apellido materno:">
+                <label for="lista-pacientes" class="label">Paciente:</label>
+                <select name="paciente" id="lista-pacientes">
+                    <option value=""> --- </option>
+                </select>
             </div>
             <div class="input">
                 <label for="fecha" class="label">Fecha de cita:</label>
@@ -39,7 +34,7 @@
                 <input type="time" id="hora-cita">
             </div>
 
-            <input id="registrar-cita" type="submit" value="Registrar">
+            <input id="registrar-cita" type="button" value="Registrar" onclick="registrarCita()">
             
         </form>
 
@@ -49,5 +44,7 @@
     </div>
     
     </main>
+
+    <script src="/JS/script.js"></script>
 </body>
 </html>

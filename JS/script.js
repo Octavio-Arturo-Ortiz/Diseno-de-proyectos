@@ -163,6 +163,23 @@ const registrarCita =  () => {
         .then(data => console.log(data))
 }   
 
+//Codigo JS de LOGIN
+
+function validar()
+		{
+			var usuario = document.getElementById("usuario").value;
+			var contraseña = document.getElementById("pass").value;	
+
+			if(usuario == "admin" && contraseña == "password")
+			{
+				alert("Usuario y Contraseña validos, BUEN DIA!");
+                window.location.href = "/HTML/index.html";
+			}
+			else
+			{
+				alert("Verifique sus credenciales (contraseña o usuario no valido)");
+			}
+		}
 
 
 

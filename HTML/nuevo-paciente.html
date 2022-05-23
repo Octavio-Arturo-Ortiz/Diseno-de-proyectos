@@ -17,22 +17,22 @@
         <h1>Formulario de registro de paciente</h1>
         <h2>Ingrese los datos:</h2>
 
-        <form action="" method="get">
+        <form id="form-nuevo-paciente">
             <div class="input">
                 <label for="nombre-nuevo" class="label">Nombre:</label>
-                <input type="text" id="nombre-nuevo" placeholder="Ingrese su nombre:">
+                <input type="text" id="nombre" placeholder="Ingrese su nombre:">
             </div>
             <div class="input">
                 <label for="apellido-paterno" class="label">Apellido Paterno:</label>
-                <input type="text" id="apellido-paterno" placeholder="Ingrese su apellido paterno:">
+                <input type="text" id="apaterno" placeholder="Ingrese su apellido paterno:">
             </div>
             <div class="input">
                 <label for="apellido-materno" class="label">Apellido Materno:</label>
-                <input type="text" id=apellido-materno placeholder="Ingrese su apellido materno:">
+                <input type="text" id="amaterno" placeholder="Ingrese su apellido materno:">
             </div>
             <div class="input">
                 <label for="edad" class="label">Edad:</label>
-                <input type="number" id=edad placeholder="Ingrese su edad:">
+                <input type="number" id="edad" placeholder="Ingrese su edad:">
             </div>
             <div class="input">
                 <label for="peso" class="label">Peso Actual:</label>
@@ -47,8 +47,7 @@
                 <input type="email" id="email" placeholder="Ingrese su email:">
             </div>
 
-            <input id="registrar-paciente" type="submit" value="Registrar">
-            
+            <input id="btnRegistrarPaciente" type="button" value="Registrar" onclick="registrarPaciente()">
         </form>
 
         
@@ -57,5 +56,7 @@
     </div>
     
     </main>
+
+    <script src="/JS/script.js"></script>
 </body>
 </html>

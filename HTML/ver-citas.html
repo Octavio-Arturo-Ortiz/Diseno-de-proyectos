@@ -7,7 +7,7 @@
     <title>Nombre consultorio</title>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
-<body>
+<body onload="obtenerCitas()">
     
     <header class="header">
         <img src="/IMG/logo index.png" alt="logo-consultorio.png">
@@ -30,11 +30,6 @@
                 <th>Hora</th>
                 <th>Paciente</th>
             </tr>
-            <tr>
-                <td>Hora Cita</td>
-                <td>Nombre Paciente</td>
-                <td><input id="modificar-cita" type="submit" value="Modificar Cita"></form></td>
-            </tr>
         </table>
     </section>
 
@@ -42,5 +37,6 @@
         <a href="/HTML/index.html">Regresar</a>
     </div>
     
+    <script src="/JS/script.js"></script>
 </body>
 </html>

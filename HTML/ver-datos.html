@@ -7,7 +7,7 @@
     <title>Nombre consultorio</title>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
-<body>
+<body onload="obtenerPacientes()">
     
     <header class="header">
         <img src="/IMG/logo index.png" alt="logo-consultorio.png">
@@ -27,16 +27,8 @@
             <th>Peso</th>
             <th>Telefono</th>
             <th>Email</th>
-        </tr>
-        <tr>
-            <td>Nombre</td>
-            <td>Apellido Paterno</td>
-            <td>Apellido Materno</td>
-            <td>Edad</td>
-            <td>Peso</td>
-            <td>Telefono</td>
-            <td>Email</td>
-            <td><input id="modificar-datos" type="submit" value="Modificar Datos"></form></td>
+            <th>ID</th>
+            <th>Acciones</th>
         </tr>
     </table>
 
@@ -44,5 +36,6 @@
         <a href="/HTML/index.html">Regresar</a>
     </div>
     
+    <script src="/JS/script.js"></script>
 </body>
 </html>

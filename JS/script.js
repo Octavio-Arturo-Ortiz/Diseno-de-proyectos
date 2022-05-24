@@ -1,6 +1,23 @@
 const API_ENDPOINT = "https://appconsultorio.azurewebsites.net";
 
 
+function validar() {
+    var usuario = document.getElementById("usuario").value;
+    var contraseña = document.getElementById("pass").value;	
+
+    if(usuario == "admin" && contraseña == "password")
+    {
+        alert("Usuario y Contraseña validos, BUEN DIA!");
+        window.location.href = "/HTML/index.html";
+    }
+    else
+    {
+        alert("Verifique sus credenciales (contraseña o usuario no valido)");
+    }
+}
+
+
+
 const mostrarFecha = () => {
     let fecha = new Date();
 

@@ -1,4 +1,5 @@
-const API_ENDPOINT = "http://127.0.0.1:8000";
+const API_ENDPOINT = "https://appconsultorio.azurewebsites.net";
+
 
 const mostrarFecha = () => {
     let fecha = new Date();
@@ -12,10 +13,45 @@ const mostrarFecha = () => {
 
 // Llenar lista de pacientes
 
+
+const cargarDatosPaciente = () => {
+    const id_paciente = new URLSearchParams(window.location.search).get("id_paciente");
+    const URL = API_ENDPOINT + `/pacientes/${id_paciente}`
+
+    const formPaciente = Array.from(document.getElementById("datos-paciente").querySelectorAll("input:not(#btnModificar)"));
+
+    
+
+    fetch(URL)
+    .then(res => { return res.json( )})
+    .then(paciente => {
+        formPaciente.forEach(campo => {
+            campo.value = paciente[campo.id]
+        });
+    });
+}
+
+const cargarDatosCita = () => {
+    const id_cita = new URLSearchParams(window.location.search).get("id_cita");
+    const URL = API_ENDPOINT + `/citas/${id_cita}`
+
+    popularLista()
+
+    const fecha = document.getElementById("fecha");
+    const hora = document.getElementById("hora-cita");
+
+    fetch(URL)
+    .then(res => { return res.json( )})
+    .then(cita => {
+        fecha.value = cita.fecha
+        hora.value = cita.hora
+    });
+}
+
 const popularLista = () => {
     const URL = API_ENDPOINT + "/pacientes/"
 
-    let elementoSelect = document.getElementById("lista-pacientes");
+    const elementoSelect = document.getElementById("lista-pacientes");
 
     fetch(URL).then(response => { return response.json() }).then(data => {
         data.forEach(paciente => {
@@ -38,7 +74,6 @@ const obtenerCitas = () => {
         return data.json()
     }).then(res => {
         res.forEach(cita => {
-            console.log(cita)
             let tr = tabla.insertRow(-1)
 
             tr.id = cita.id
@@ -48,7 +83,7 @@ const obtenerCitas = () => {
 
 
             celdaHora.innerHTML = cita.hora
-            celdaNombre.innerHTML = cita.paciente.nombre
+            celdaNombre.innerHTML = `${cita.paciente.nombre} ${cita.paciente.apaterno}`
             celdaHora.className = "row-data";
             celdaNombre.className = "row-data";
 
@@ -57,14 +92,10 @@ const obtenerCitas = () => {
             let btn = document.createElement("button");
             btn.innerHTML = "Modificar Cita";
 
-            btn.onclick = function (e) {
+            btn.onclick = (e) => {
                 let rowId = e.target.parentNode.parentNode.id;
 
-                const data = Array.from(document.getElementById(rowId).querySelectorAll(".row-data"));
-
-                for(const [index, element] of data.entries()){
-                    console.log(index, element.innerHTML);
-                }
+                window.location.href = `/HTML/modificar-cita.html?id_cita=${rowId}`
             }
 
             tr.insertCell(-1).appendChild(btn);
@@ -94,14 +125,10 @@ const obtenerPacientes = () => {
             let btn = document.createElement("button");
             btn.innerHTML = "Modificar Datos";
 
-            btn.onclick = function (e) {
+            btn.onclick = (e) => {
                 let rowId = e.target.parentNode.parentNode.id;
 
-                const data = Array.from(document.getElementById(rowId).querySelectorAll(".row-data"));
-
-                for(const [index, element] of data.entries()){
-                    console.log(index, element.innerHTML);
-                }
+                window.location.href = `/HTML/modificar-datos.html?id_paciente=${rowId}`
             }
 
             tr.insertCell(-1).appendChild(btn);
@@ -143,7 +170,10 @@ const registrarCita =  () => {
     const fecha = document.getElementById("fecha").value;
     const hora = document.getElementById("hora-cita").value;
 
-    console.log(id, fecha, hora)
+    if(id == 0){
+        alert("Por favor, seleccione un paciente");
+        return;
+    }
 
     const cita = {
         fecha: fecha, 
@@ -164,7 +194,62 @@ const registrarCita =  () => {
 }   
 
 
+const actualizarPaciente = () => {
+    const id_paciente = new URLSearchParams(window.location.search).get("id_paciente");
+    const URL = API_ENDPOINT + `/pacientes/${id_paciente}`
 
+    const formData = document.getElementById("datos-paciente").querySelectorAll('input:not(#btnModificar)');
+
+    const data = {}
+
+    formData.forEach(field => {
+        data[field.id] = field.value
+    })
+
+    data.id = id_paciente
+
+    fetch(URL, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(res => {return res.json()})
+        .then(data => alert(`Registro con ID: ${data.id} actualizado`))   
+}
+
+const actualizarCita = () => {
+    const id_cita = new URLSearchParams(window.location.search).get("id_cita");
+    const URL = API_ENDPOINT + `/citas/${id_cita}`
+
+    const id = document.getElementById("lista-pacientes").value;
+    const fecha = document.getElementById("fecha").value;
+    const hora = document.getElementById("hora-cita").value;
+
+    if(id == 0){
+        alert("Por favor, seleccione un paciente");
+        return;
+    }
+
+    const cita = {
+        fecha: fecha, 
+        hora: hora,
+        id_paciente: id
+    }
+
+    fetch(URL, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(cita)
+        })
+        .then(res => { return res.json() })
+        .then(data => alert(`Cita con ID: ${data.id} modificada`))
+}
 
 /*
 Recursos para js:

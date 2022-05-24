@@ -7,7 +7,7 @@
     <title>Nombre Consultorio</title>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
-<body>
+<body onload="cargarDatosPaciente()">
 
     <header class="header">
         <img src="/IMG/logo index.png" alt="logo-consultorio.png">
@@ -17,18 +17,18 @@
         <h1>Modificacion de datos del paciente</h1>
         <h2>Ingrese los datos:</h2>
 
-        <form action="" method="get">
+        <form id="datos-paciente">
             <div class="input">
-                <label for="nombre-nuevo" class="label">Nombre:</label>
-                <input type="text" id="nombre-nuevo" placeholder="Ingrese su nombre:">
+                <label for="nombre" class="label">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Ingrese su nombre:">
             </div>
             <div class="input">
-                <label for="apellido-paterno" class="label">Apellido Paterno:</label>
-                <input type="text" id="apellido-paterno" placeholder="Ingrese su apellido paterno:">
+                <label for="apaterno" class="label">Apellido Paterno:</label>
+                <input type="text" id="apaterno" placeholder="Ingrese su apellido paterno:">
             </div>
             <div class="input">
-                <label for="apellido-materno" class="label">Apellido Materno:</label>
-                <input type="text" id=apellido-materno placeholder="Ingrese su apellido materno:">
+                <label for="amaterno" class="label">Apellido Materno:</label>
+                <input type="text" id=amaterno placeholder="Ingrese su apellido materno:">
             </div>
             <div class="input">
                 <label for="edad" class="label">Edad:</label>
@@ -46,16 +46,16 @@
                 <label for="email" class="label">Email:</label>
                 <input type="email" id="email" placeholder="Ingrese su email:">
             </div>
-
-            <input id="registrar-paciente" type="submit" value="Modificar">
-            
+            <input id="btnModificar" type="button" value="Modificar" onclick="actualizarPaciente()">
         </form>
 
         
     <div class="boton-regreso">
-        <a href="/HTML/index.html">Regresar</a>
+        <a href="/HTML/ver-datos.html">Regresar</a>
     </div>
     
     </main>
+
+    <script src="/JS/script.js"></script>
 </body>
 </html>

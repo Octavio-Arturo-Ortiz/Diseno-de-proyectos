@@ -103,6 +103,14 @@ th{
     margin-top: 30px;
 }
 
+#btnModificar{
+    display: flex;
+    margin: 0px auto;
+    padding: 8px;
+    margin-top: 30px;
+}
+
+
 #registrar-cita{
     display: flex;
     margin: 0px auto;
